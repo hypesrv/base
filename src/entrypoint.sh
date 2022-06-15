@@ -1,5 +1,4 @@
 #!/bin/bash
-
 cd /tmp
 mkdir -p ${SRVMNT}/steamcmd ${SRVMNT}/steamapps
 wget -qO- "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar xvzf - -C "${SRVMNT}/steamcmd"
@@ -14,10 +13,10 @@ cp -v linux32/steamclient.so ../.steam/sdk32/steamclient.so
 
 if  [ ! -z "$METAMOD_VERSION" ] && [ ! -d "${SRVMNT}/${STEAMAPP}/addons/metamod" ]; then
 	LATESTMM=$(wget -qO- https://mms.alliedmods.net/mmsdrop/"${METAMOD_VERSION}"/mmsource-latest-linux)
-	wget -qO- https://mms.alliedmods.net/mmsdrop/"${METAMOD_VERSION}"/"${LATESTMM}" | tar xvzf - -C "${SRVMNT}"	
+	wget -qO- https://mms.alliedmods.net/mmsdrop/"${METAMOD_VERSION}"/"${LATESTMM}" | tar xvzf - -C "${SRVMNT}/${STEAMAPP}"	
 fi
 
 if  [ ! -z "$SOURCEMOD_VERSION" ] && [ ! -d "${SRVMNT}/${STEAMAPP}/addons/sourcemod" ]; then
 	LATESTSM=$(wget -qO- https://sm.alliedmods.net/smdrop/"${SOURCEMOD_VERSION}"/sourcemod-latest-linux)
-	wget -qO- https://sm.alliedmods.net/smdrop/"${SOURCEMOD_VERSION}"/"${LATESTSM}" | tar xvzf - -C "${SRVMNT}"
+	wget -qO- https://sm.alliedmods.net/smdrop/"${SOURCEMOD_VERSION}"/"${LATESTSM}" | tar xvzf - -C "${SRVMNT}/${STEAMAPP}"
 fi

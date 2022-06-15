@@ -29,4 +29,7 @@ RUN     set -x \
                 && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
                 && dpkg-reconfigure --frontend=noninteractive locales \
                 && apt-get remove --purge --auto-remove -y \
-                && rm -rf /var/lib/apt/lists/*
+                && rm -rf /var/lib/apt/lists/* \
+                && apt-get clean
+
+WORKDIR ${SRVMNT}
