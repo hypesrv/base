@@ -1,23 +1,21 @@
 #!/bin/bash
+STEAM_USER=anonymous
+STEAM_PASS=""
+STEAM_AUTH=""
+
 cd /tmp
-mkdir -p ${SERVERDIR}/steamcmd
-wget -qO- "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar xvzf - -C "${STEAMCMDDIR}"
-./${STEAMCMDDIR}/steamcmd.sh +quit
-
-mkdir -p "${SERVERDIR}/.steam/sdk32"
-
-ln -s "${STEAMCMDDIR}/linux32/steamclient.so" "${SERVERDIR}/.steam/sdk32/steamclient.so"
-ln -s "${STEAMCMDDIR}/linux32/steamcmd" "${STEAMCMDDIR}/linux32/steam"
-ln -s "${STEAMCMDDIR}/steamcmd.sh" "${STEAMCMDDIR}/steam.sh"
-
-mkdir -p ${SERVERDIR}/steamapps
-
-cd ${SERVERDIR}/steamcmd
+mkdir -p /mnt/server/steamcmd
+wget -qO- "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar xvzf - -C /mnt/server/steamcmd
+mkdir -p /mnt/server/steamapps
+cd /mnt/server/steamcmd
 
 chown -R root:root /mnt
 export HOME=/mnt/server
 
-bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "${STEAMAPPDIR}" \
-				+login anonymous \
-				+app_update "${STEAMAPPID}" \
-				+quit
+./steamcmd.sh +force_install_dir /mnt/server +login ${STEAM_USER} ${STEAM_PASS} ${STEAM_AUTH} +app_update ${SRCDS_APPID} ${EXTRA_FLAGS} +quit ## other flags may be needed depending on install. looking at you cs 1.6
+
+mkdir -p /mnt/server/.steam/sdk32
+cp -v linux32/steamclient.so ../.steam/sdk32/steamclient.so
+
+# mkdir -p /mnt/server/.steam/sdk64
+# cp -v linux64/steamclient.so ../.steam/sdk64/steamclient.so
