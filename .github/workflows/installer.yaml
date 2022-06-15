@@ -1,4 +1,4 @@
-name: Installer Image
+name: SourceCS Image
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   push:
-    name: "Installer: SourceCS"
+    name: "SourceCS Installer"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false

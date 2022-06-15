@@ -13,5 +13,5 @@ RUN set -x \
                 lib32gcc-s1=10.2.1-6 \
                 wget=1.21-1+deb11u1 \
                 ca-certificates=20210119 \
-            && apt-get remove --purge --auto-remove -y wget \
+            && apt-get remove --purge --auto-remove -y \
             && rm -rf /var/lib/apt/lists/*
