@@ -1,4 +1,5 @@
 name: Installer Image
+
 on:
   workflow_dispatch:
   schedule:
@@ -8,15 +9,14 @@ on:
       - master
     paths:
       - src/**
+
 jobs:
   push:
-    name: "Installer:${{ matrix.game }}"
+    name: "Installer: SourceCS"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        game:
-          - sourcecs
+
     steps:
       - uses: actions/checkout@v2
       - uses: docker/setup-buildx-action@v1
@@ -29,9 +29,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - uses: docker/build-push-action@v2
         with:
-          context: ./src/${{ matrix.game }}
-          file: ./src/${{ matrix.game }}/Dockerfile
+          context: ./src/
+          file: ./src/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/hypesrv/installer:${{ matrix.game }}
+            ghcr.io/hypesrv/installer:sourcecs
