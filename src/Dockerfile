@@ -1,13 +1,13 @@
 FROM    debian:bullseye-slim
 
-LABEL   author="DRANIX" maintainer="dranix@hypesrv.com"
+LABEL   author='DRANIX' maintainer='dranix@hypesrv.com'
 
 ENV     DEBIAN_FRONTEND noninteractive
 ENV     SRVMNT /mmt/server
 
 ENV     STEAM_USER anonymous
-ENV     STEAM_PASS
-ENV     STEAM_AUTH
+ENV     STEAM_PASS ''
+ENV     STEAM_AUTH ''
 
 ENV     STEAMAPPID 740
 ENV     STEAMAPP csgo
