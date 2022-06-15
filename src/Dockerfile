@@ -26,3 +26,5 @@ RUN     set -x \
         && rm -rf /var/lib/apt/lists/*
 
 WORKDIR ${STEAMCMDDIR}
+
+CMD ["bash", "entrypoint.sh"]
