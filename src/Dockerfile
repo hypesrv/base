@@ -17,9 +17,9 @@ ENV     SOURCEMOD_VERSION 1.11
 
 RUN     set -x \
             dpkg --add-architecture i386 \
-			    && apt update \
-			    && apt upgrade -y \
-			    && apt install -y --no-install-recommends --no-install-suggests \
+                && apt update \
+                && apt upgrade -y \
+                && apt install -y --no-install-recommends --no-install-suggests \
                     lib32stdc++6=10.2.1-6 \
                     lib32gcc-s1=10.2.1-6 \
                     wget=1.21-1+deb11u1 \

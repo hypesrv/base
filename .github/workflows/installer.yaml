@@ -1,4 +1,4 @@
-name: SourceCS Image
+name: SteamCMD Image
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   push:
-    name: "SourceCS Installer"
+    name: "SteamCMD Installer"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
