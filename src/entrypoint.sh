@@ -1,7 +1,8 @@
 #!/bin/bash
 cd /tmp
-mkdir -p ${SRVMNT}/steamcmd ${SRVMNT}/steamapps
+mkdir -p ${SRVMNT}/steamcmd
 wget -qO- "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz" | tar xvzf - -C "${SRVMNT}/steamcmd"
+mkdir -p ${SRVMNT}/steamapps
 cd ${SRVMNT}/steamcmd
 
 chown -R root:root /mnt
