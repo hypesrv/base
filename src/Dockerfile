@@ -31,5 +31,3 @@ RUN     set -x \
                 && apt-get remove --purge --auto-remove -y \
                 && rm -rf /var/lib/apt/lists/* \
                 && apt-get clean
-
-WORKDIR ${SRVMNT}
