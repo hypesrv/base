@@ -11,8 +11,6 @@ chown -R root:root /mnt
 mkdir -p ${SRVMNT}/.steam/sdk32
 cp -v linux32/steamclient.so ../.steam/sdk32/steamclient.so
 
-find
-
 if  [ ! -z "$METAMOD_VERSION" ] && [ ! -d "${SRVMNT}/${STEAMAPP}/addons/metamod" ]; then
 	LATESTMM=$(wget -qO- https://mms.alliedmods.net/mmsdrop/"${METAMOD_VERSION}"/mmsource-latest-linux)
 	wget -qO- https://mms.alliedmods.net/mmsdrop/"${METAMOD_VERSION}"/"${LATESTMM}" | tar xvzf - -C "${SRVMNT}/${STEAMAPP}"	

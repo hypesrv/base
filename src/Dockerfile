@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-LABEL author='DRANIX' maintainer='dranix@hypesrv.com'
+LABEL author="DRANIX" maintainer="dranix@hypesrv.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV SRVMNT /mmt/server
